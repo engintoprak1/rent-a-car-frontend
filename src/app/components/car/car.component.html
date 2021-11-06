@@ -1,18 +1,34 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Açıklama</th>
-      <th scope="col">Renk</th>
-      <th scope="col">Marka</th>
-      <th scope="col">Fiyat</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let carDetail of carDetails">
-      <th scope="row">{{carDetail.carName}}</th>
-      <td>{{carDetail.colorName}}</td>
-      <td>{{carDetail.brandName}}</td>
-      <td>{{carDetail.dailyPrice}}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-md-3">
+    <app-brand></app-brand>
+    <app-color></app-color>
+  </div>
+  <div class="col-md-9">
+    <table class="table table-dark table-striped table-responsive">
+      <thead>
+        <tr>
+          <th scope="col">Marka</th>
+          <th scope="col">Model</th>
+          <th scope="col">Açıklama</th>
+          <th scope="col">Renk</th>
+          <th scope="col">Fiyat</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let carDetail of carDetails">
+          <th scope="row">{{ carDetail.brandName }}</th>
+          <td>{{ carDetail.modelName }}</td>
+          <td>{{ carDetail.description }}</td>
+          <td>{{ carDetail.colorName }}</td>
+          <td>{{ carDetail.dailyPrice }}</td>
+          <td>
+            <button routerLink="/cars/carDetail/{{carDetail.id}}" type="button" class="btn btn-info">Detaya Git</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <app-rental></app-rental>
+  </div>
+</div>
