@@ -1,0 +1,84 @@
+<div *ngIf="!paymentPage">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Kiralama Tarihi</label
+        >
+        <input
+          (change)="setMinEndDate()"
+          [(ngModel)]="startDate"
+          min="{{ minStartDate | date: 'yyyy-MM-dd' }}"
+          type="date"
+          class="form-control"
+          id="exampleFormControlInput1"
+          placeholder="name@example.com"
+        />
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Kira Bitiş Tarihi</label
+        >
+        <input
+          (change)="calculateDiff()"
+          [(ngModel)]="endDate"
+          type="date"
+          class="form-control"
+          min="{{ minEndDate | date: 'yyyy-MM-dd' }}"
+          id="exampleFormControlInput1"
+          placeholder="name@example.com"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="mt-4">
+      <p>
+        Toplam kiralanacak gün sayısı : {{ diff }} <br />
+        Ödenecek ücret : {{ money }}
+      </p>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <button (click)="goToPayment()" type="button" class="btn btn-success">
+      İlerle
+    </button>
+  </div>
+</div>
+
+<div class="container mt-5 px-5" *ngIf="paymentPage">
+  <div class="mb-4">
+      <h2>Confirm order and pay</h2> <span>please make the payment, after that you can enjoy all the features and benefits.</span>
+  </div>
+  <div class="row">
+      <div class="col-md-8">
+          <div class="card p-3">
+              <h6 class="text-uppercase">Payment details</h6>
+              <div class="inputbox mt-3"> <input type="text" name="name" class="form-control" required="required"> <span>Name on card</span> </div>
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <i class="fa fa-credit-card"></i> <span>Card Number</span> </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="d-flex flex-row">
+                          <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>Expiry</span> </div>
+                          <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>CVV</span> </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+          <div class="mt-4 mb-4 d-flex justify-content-between"> <button (click)="goToBack()" class="btn btn-success px-3">Previous step</button> <button (click)="rentCar()" class="btn btn-success px-3">Pay {{money | currency}}</button> </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card card-blue p-3 text-white mb-3"> <span>You have to pay</span>
+              <div class="d-flex flex-row align-items-end mb-3">
+                  <h1 class="mb-0 yellow"> {{money | currency}}</h1>
+              </div> <span>Enjoy all the features and perk after you complete the payment</span> <a class="yellow decoration">Know all the features</a>
+              <div class="hightlight"> <span>100% Guaranteed support and update for the next 5 years.</span> </div>
+          </div>
+      </div>
+  </div>
+</div>

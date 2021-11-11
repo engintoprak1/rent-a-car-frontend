@@ -1,11 +1,12 @@
 import { Image } from "./image";
 
-export interface CarForDetailModel{
+export interface CarForDetail{
+  id:number;
   brandName:string,
   modelName:string,
   colorName:string,
   description:string,
   images : Image[],
-  dailyPrice:string,
+  dailyPrice:number,
   modelYear:number
 }

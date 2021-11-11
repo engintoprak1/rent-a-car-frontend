@@ -1,0 +1,10 @@
+img{
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+}
+tr{
+  text-align: center;
+  align-items: center;
+  vertical-align: middle;
+}

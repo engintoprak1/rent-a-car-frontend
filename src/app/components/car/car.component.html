@@ -1,10 +1,54 @@
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-2">
     <app-brand></app-brand>
     <app-color></app-color>
   </div>
-  <div class="col-md-9">
-    <table class="table table-dark table-striped table-responsive">
+  <div class="col-md-10">
+    <div class="row" id="filterLine">
+      <div class="col-md-3 mb-3">
+        <input
+          type="text"
+          [(ngModel)]="filterText"
+          class="form-control"
+          id="textFilter"
+          placeholder="Aradığınız kelimeyi yazınız"
+        />
+      </div>
+      <div class="col-md-3 mb-3">
+        <select
+          class="form-select"
+          [(ngModel)]="brandId"
+          aria-label="Default select example"
+        >
+          <option value="0" selected>Marka</option>
+          <option value="{{ brand.id }}" *ngFor="let brand of brands">
+            {{ brand.brandName }}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-3 mb-3">
+        <select
+          class="form-select"
+          [(ngModel)]="colorId"
+          aria-label="Default select example"
+        >
+          <option value="0" selected>Renk</option>
+          <option value="{{ color.id }}" *ngFor="let color of colors">
+            {{ color.colorName }}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-3 mb-3">
+        <button type="button" (click)="filter()" class="btn btn-success">
+          <i class="bi bi-funnel"></i>
+        </button>
+      </div>
+    </div>
+    <div *ngIf="filterText.length > 2" class="alert alert-success">
+      {{ filterText }} aradınız
+    </div>
+
+    <table class="table table-striped table-responsive">
       <thead>
         <tr>
           <th scope="col">Marka</th>
@@ -12,18 +56,54 @@
           <th scope="col">Açıklama</th>
           <th scope="col">Renk</th>
           <th scope="col">Fiyat</th>
+          <th scope="col">Fotoğraf</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let carDetail of carDetails">
+        <tr *ngFor="let carDetail of carsForList | filterPipe: filterText">
           <th scope="row">{{ carDetail.brandName }}</th>
           <td>{{ carDetail.modelName }}</td>
           <td>{{ carDetail.description }}</td>
           <td>{{ carDetail.colorName }}</td>
-          <td>{{ carDetail.dailyPrice }}</td>
+          <td>{{ carDetail.dailyPrice | currency }}</td>
           <td>
-            <button routerLink="/cars/carDetail/{{carDetail.id}}" type="button" class="btn btn-info">Detaya Git</button>
+            <img
+              src="https://localhost:44327/images/{{
+                carDetail.image.imagePath
+              }}"
+              alt="Random first slide"
+            />
+          </td>
+          <td>
+            <button
+              routerLink="/cars/carDetail/{{ carDetail.id }}"
+              type="button"
+              class="btn btn-info"
+            >
+              Detaya Git
+            </button>
+          </td>
+          <td>
+            <button
+              [disabled]="!carDetail.availableForRent"
+              (click)="addToCart(carDetail)"
+              type="button"
+              class="btn btn-warning"
+            >
+              <i class="bi bi-cart4"></i>
+            </button>
+          </td>
+          <td>
+            <button
+              routerLink="/rental/add/{{carDetail.id}}"
+              type="button"
+              class="btn btn-success"
+            >
+              Kirala
+            </button>
           </td>
         </tr>
       </tbody>
