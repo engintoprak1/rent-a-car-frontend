@@ -71,6 +71,7 @@
           <td>{{ carDetail.dailyPrice | currency }}</td>
           <td>
             <img
+              *ngIf="carDetail.image"
               src="https://localhost:44327/images/{{
                 carDetail.image.imagePath
               }}"

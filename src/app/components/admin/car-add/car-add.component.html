@@ -1,0 +1,38 @@
+<div class="card">
+  <div class="card-header">
+    <div class="d-flex">
+      <h4>Araç Ekle</h4>
+    </div>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="carAddForm">
+      <div class="align-items center">
+        <div class="form-group mb-2">
+          <select class="form-select mb-2" formControlName="brandId" id="brand">
+            <option value="0">Marka Seç</option>
+            <option *ngFor="let brand of brands" [ngValue]="brand.id">{{brand.brandName}}</option>
+          </select>
+          <select class="form-select mb-2" formControlName="colorId" id="color">
+            <option value="0">Renk Seç</option>
+            <option *ngFor="let color of colors" [ngValue]="color.id">{{color.colorName}}</option>
+          </select>
+          <input type="text" id="modelName" formControlName="modelName" class="form-control mb-2" placeholder="Model Name" />
+          <input type="text" id="description" formControlName="description" class="form-control mb-2" placeholder="Description" />
+          <input #fileInput type="file" multiple accept=".png, .jpg, .jpeg" id="images" formControlName="images" class="form-control-file mb-2" />
+          <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control mb-2" placeholder="Daily Price" />
+          <input type="number" id="modelYear" formControlName="modelYear" class="form-control mb-2" placeholder="Model Year" />
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="d-flex mt-3">
+        <button (click)="add()" type="button" class="btn btn-success me-2">
+          Ekle
+        </button>
+        <button (click)="closeCarModal()" type="button" class="btn btn-danger">
+          İptal
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

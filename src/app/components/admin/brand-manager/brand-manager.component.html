@@ -1,0 +1,49 @@
+<div  class="container">
+  <div class="card">
+      <div class="card-header text-center bg-dark bg-gradient text-white">
+          <h3>Marka Yönetimi</h3>
+
+      </div>
+      <div class="card-body">
+          <ul class="list-group">
+              <li class="list-group-item bg-danger bg-gradient text-center">
+                  <div class="row align-items-center text-white">
+                      <div class="col-md-1">
+                          <strong>ID</strong>
+                      </div>
+                      <div class="col-md-8">
+                          <strong>Marka Adı</strong>
+                      </div>
+                      <div class="col-md-3">
+                          <button (click)="showBrandAddModal()" type="button" class="btn btn-secondary float-end">
+                              Marka ekle
+                          </button>
+                      </div>
+                  </div>
+              </li>
+              <li *ngFor="let brand of brands" class="list-group-item list-group-item-action text-center">
+                <div class="row align-items-center">
+                    <div class="col-md-1">
+                        {{brand.id}}
+                    </div>
+                    <div class="col-md-8">
+                        {{brand.brandName}}
+                    </div>
+                    <div class="col-md-3">
+                        <div class="btn-group float-end">
+                            <button (click)="showBrandUpdateModal(brand)" type="button" class="btn btn-dark px-3">
+                              <i class="bi bi-pencil-square"></i>
+                            </button>
+                            <button (click)="showBrandDeleteModal(brand)" type="button" class="btn btn-danger px-3">
+                              <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+          </ul>
+      </div>
+  </div>
+</div>
+

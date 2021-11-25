@@ -1,0 +1,24 @@
+<div class="card">
+
+  <div class="card-header">
+    <div class="d-flex">
+      <h4>Renk Ekle</h4>
+    </div>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="colorAddForm">
+      <div class="align-items center">
+        <div class="form-group">
+          <input type="text" id="colorName" formControlName="colorName" class="form-control" placeholder="Renk adı" />
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="d-flex mt-3">
+        <button (click)="add()" type="button" class="btn btn-success me-2">Ekle</button>
+        <button (click)="closeColorAddModal()" type="button" class="btn btn-danger">İptal</button>
+      </div>
+    </div>
+  </div>
+
+</div>

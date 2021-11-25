@@ -1,0 +1,10 @@
+img{
+  width: 100px;
+  height: auto;
+}
+
+.row{
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  --bs-gutter-x:0rem !important;
+}

@@ -7,6 +7,7 @@ export interface CarForList{
   description:string,
   colorName:string,
   dailyPrice:number,
+  modelYear:number,
   availableForRent:boolean,
   image: Image
 }

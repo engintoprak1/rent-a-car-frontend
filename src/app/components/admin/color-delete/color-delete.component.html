@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-header">
+      <div class="d-flex justify-content-between">
+          <h5>{{color.colorName}} Rengini Sil</h5>
+      </div>
+
+  </div>
+  <div class="card-body">
+      <strong>{{color.id}}</strong> id değerine sahip <strong>{{color.colorName}}</strong> rengini silmek istediğinizden emin misiniz?<br>
+
+      <div class="row mt-3">
+        <div class="col-md-10 d-flex align-items-center">
+          <div class="progress-bar bg-warning text-dark" role="progressbar" style="width: 85%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">Bu renge ait tüm araçlar silenecktir!</div>
+        </div>
+        <div class="col-md-2">
+          <div class="d-flex justify-content-end">
+            <button (click)="delete()" type="button" class="btn btn-success me-2">Sil</button>
+            <button (click)="closeColorDeleteModal()" type="button" class="btn btn-danger">İptal</button>
+        </div>
+        </div>
+
+
+      </div>
+  </div>
+</div>

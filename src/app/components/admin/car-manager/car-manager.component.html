@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header text-center bg-dark bg-gradient text-white row">
+      <div class="col-md-9">
+        <h3>Araç Yönetimi</h3>
+      </div>
+      <div class="col-md-3">
+        <button (click)="showCarAddModal()" type="button" class="btn btn-secondary d-flex float-end">
+           Araç ekle
+        </button>
+      </div>
+    </div>
+    <div class="card-body row">
+      <ul class="list-group">
+        <li class="list-group-item bg-danger bg-gradient text-center">
+          <div class="row align-items-center text-white">
+            <div class="col-sm-1">
+              <strong>ID</strong>
+            </div>
+            <div class="col-sm-1">
+              <strong>Marka</strong>
+            </div>
+            <div class="col-sm-2">
+              <strong>Renk</strong>
+            </div>
+            <div class="col-sm-1">
+              <strong>Model</strong>
+            </div>
+            <div class="col-sm-3">
+              <strong>Açıklama</strong>
+            </div>
+            <div class="col-sm-1">
+              <strong>Fiyat</strong>
+            </div>
+            <div class="col-sm-2">
+              <strong>Model Yılı</strong>
+            </div>
+          </div>
+        </li>
+        <li
+          *ngFor="let car of cars"
+          class="list-group-item list-group-item-action text-center"
+        >
+          <div class="row align-items-center">
+            <div class="col-md-1">{{car.id}}</div>
+            <div class="col-md-1">{{car.brandName}}</div>
+            <div class="col-md-2">{{car.colorName}}</div>
+            <div class="col-md-1">{{car.modelName}}</div>
+            <div class="col-md-3">{{car.description}}</div>
+            <div class="col-md-1">{{car.dailyPrice | currency}}</div>
+            <div class="col-md-2">{{car.modelYear}}</div>
+            <div class="col-md-1">
+              <div class="btn-group float-end">
+                <button
+                  (click)="showCarUpdateModal(car)"
+                  type="button"
+                  class="btn btn-dark px-3"
+                >
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+                <button
+                  (click)="showCarDeleteModal(car)"
+                  type="button"
+                  class="btn btn-danger px-3"
+                >
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

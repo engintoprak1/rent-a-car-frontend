@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-header">
+      <div class="d-flex justify-content-between">
+          <h5>{{car.brandName}} {{car.modelName}} Aracını Sil</h5>
+      </div>
+
+  </div>
+  <div class="card-body">
+      <strong>{{car.id}}</strong> id değerine sahip <strong>{{car.brandName}} {{car.modelName}}</strong> aracını silmek istediğinizden emin misiniz?<br>
+
+      <div class="row mt-3">
+          <div class="d-flex justify-content-end">
+            <button (click)="delete()" type="button" class="btn btn-success me-2">Sil</button>
+            <button (click)="closeCarDeleteModal()" type="button" class="btn btn-danger">İptal</button>
+        </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<div  class="container">
+  <div class="card">
+      <div class="card-header text-center bg-dark bg-gradient text-white">
+          <h3>Renk Yönetimi</h3>
+
+      </div>
+      <div class="card-body">
+          <ul class="list-group">
+              <li class="list-group-item bg-danger bg-gradient text-center">
+                  <div class="row align-items-center text-white">
+                      <div class="col-md-1">
+                          <strong>ID</strong>
+                      </div>
+                      <div class="col-md-8">
+                          <strong>Renk Adı</strong>
+                      </div>
+                      <div class="col-md-3">
+                          <button (click)="showColorAddModal()" type="button" class="btn btn-secondary float-end">
+                              Renk ekle
+                          </button>
+                      </div>
+                  </div>
+              </li>
+              <li *ngFor="let color of colors" class="list-group-item list-group-item-action text-center">
+                <div class="row align-items-center">
+                    <div class="col-md-1">
+                        {{color.id}}
+                    </div>
+                    <div class="col-md-8">
+                        {{color.colorName}}
+                    </div>
+                    <div class="col-md-3">
+                        <div class="btn-group float-end">
+                            <button (click)="showColorUpdateModal(color)" type="button" class="btn btn-dark px-3">
+                              <i class="bi bi-pencil-square"></i>
+                            </button>
+                            <button (click)="showColorDeleteModal(color)" type="button" class="btn btn-danger px-3">
+                              <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+          </ul>
+      </div>
+  </div>
+</div>
+
