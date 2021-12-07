@@ -9,5 +9,6 @@ export interface CarForList{
   dailyPrice:number,
   modelYear:number,
   availableForRent:boolean,
-  image: Image
+  image: Image,
+  findeks:number
 }

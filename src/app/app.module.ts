@@ -1,12 +1,13 @@
 import { DEFAULT_CURRENCY_CODE, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 import { AppComponent } from './app.component';
 import { CarComponent } from './components/car/car.component';
@@ -37,6 +38,10 @@ import { CarManagerComponent } from './components/admin/car-manager/car-manager.
 import { CarDeleteComponent } from './components/admin/car-delete/car-delete.component';
 import { CarUpdateComponent } from './components/admin/car-update/car-update.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 
 
 
@@ -66,7 +71,10 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     CarManagerComponent,
     CarDeleteComponent,
     CarUpdateComponent,
-    HomepageComponent
+    HomepageComponent,
+    LoginComponent,
+    ProfileComponent,
+    ProfileEditComponent
 
   ],
   imports: [
@@ -84,7 +92,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     CarouselModule,
     CommonModule,
   ],
-  providers: [{provide: DEFAULT_CURRENCY_CODE, useValue: '₺'}],
+  providers: [{provide: DEFAULT_CURRENCY_CODE, useValue: '₺'},{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

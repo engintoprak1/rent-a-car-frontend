@@ -1,0 +1,8 @@
+::ng-deep .owl-next,
+::ng-deep .owl-prev  {
+  font-size:20px !important;
+}
+
+::ng-deep .carousel{
+  background-color: aqua;
+}

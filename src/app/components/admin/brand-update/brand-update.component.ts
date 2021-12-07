@@ -37,6 +37,7 @@ export class BrandUpdateComponent implements OnInit {
         this.closeBrandModal();
         this.reloadPage.emit();
       },responseError=>{
+        console.log(responseError)
         if(responseError.error.ValidationErrors && responseError.error.ValidationErrors.length>0){
           for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
             this.toastrService.error(responseError.error.ValidationErrors[i].ErrorMessage, "Doğrulama Hatası")

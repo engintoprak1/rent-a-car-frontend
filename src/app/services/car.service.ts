@@ -30,10 +30,6 @@ export class CarService {
     return this.httpClient.put<ResponseModel>(newPath,car)
   }
 
-  getAllCars(): Observable<ListResponseModel<Car>> {
-    let newPath = this.apiUrl + 'cars/getall';
-    return this.httpClient.get<ListResponseModel<Car>>(newPath);
-  }
 
   getCarById(id:number): Observable<SingleResponseModel<CarForList>>{
     let newPath = this.apiUrl + 'cars/getbyid?id=' + id;

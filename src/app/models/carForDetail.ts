@@ -8,5 +8,6 @@ export interface CarForDetail{
   description:string,
   images : Image[],
   dailyPrice:number,
-  modelYear:number
+  modelYear:number,
+  findeks:number
 }

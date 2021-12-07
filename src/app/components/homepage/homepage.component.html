@@ -1,1 +1,16 @@
-<p>homepage works!</p>
+<owl-carousel-o [options]="customOptions">
+  <ng-container *ngFor="let car of cars">
+    <ng-template carouselSlide [id]="car.id.toString()">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://localhost:44327/images/{{ car.image.imagePath }}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>
+
+

@@ -20,6 +20,9 @@
         <li class="list-group-item">
           <b>Açıklama : </b>{{ carForDetail.description }}
         </li>
+        <li class="list-group-item">
+          <b>Findeks puanı : </b>{{ carForDetail.findeks }}
+        </li>
       </ul>
       <button routerLink="/rental/add/{{carForDetail.id}}" *ngIf="carForDetail != undefined" type="button" class="btn btn-success mt-3 w-75">Kirala</button>
     </div>

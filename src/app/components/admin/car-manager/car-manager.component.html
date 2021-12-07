@@ -20,13 +20,13 @@
             <div class="col-sm-1">
               <strong>Marka</strong>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-1">
               <strong>Renk</strong>
             </div>
             <div class="col-sm-1">
               <strong>Model</strong>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
               <strong>Açıklama</strong>
             </div>
             <div class="col-sm-1">
@@ -34,6 +34,9 @@
             </div>
             <div class="col-sm-2">
               <strong>Model Yılı</strong>
+            </div>
+            <div class="col-sm-1">
+              <strong>Findeks</strong>
             </div>
           </div>
         </li>
@@ -44,12 +47,13 @@
           <div class="row align-items-center">
             <div class="col-md-1">{{car.id}}</div>
             <div class="col-md-1">{{car.brandName}}</div>
-            <div class="col-md-2">{{car.colorName}}</div>
+            <div class="col-md-1">{{car.colorName}}</div>
             <div class="col-md-1">{{car.modelName}}</div>
-            <div class="col-md-3">{{car.description}}</div>
+            <div class="col-md-2">{{car.description}}</div>
             <div class="col-md-1">{{car.dailyPrice | currency}}</div>
             <div class="col-md-2">{{car.modelYear}}</div>
-            <div class="col-md-1">
+            <div class="col-md-1">{{car.findeks}}</div>
+            <div class="col-md-2">
               <div class="btn-group float-end">
                 <button
                   (click)="showCarUpdateModal(car)"

@@ -1,6 +1,6 @@
 export interface CreditCard{
   nameOnTheCard:string,
   cardNumber:string,
-  expirationDate:Date
+  expirationDate:string
   cvv:number
 }

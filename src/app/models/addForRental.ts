@@ -1,6 +1,6 @@
 export interface AddForRental{
   carId:number;
   rentDays:number;
-  cartNumber:string;
+  cardNumber:string;
   totalPrice:number;
 }

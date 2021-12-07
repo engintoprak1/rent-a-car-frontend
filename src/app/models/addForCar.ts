@@ -7,5 +7,6 @@ export interface AddForCar{
   dailyPrice:number,
   modelYear:number,
   description:string,
-  images:Image[]
+  images:Image[],
+  findeks:number
 }

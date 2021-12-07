@@ -18,7 +18,6 @@ import { RentalService } from 'src/app/services/rental.service';
   styleUrls: ['./car.component.css'],
 })
 export class CarComponent implements OnInit {
-  cars: Car[] = [];
   carsForList: CarForList[] = [];
   brands: Brand[];
   colors: Color[];
@@ -70,11 +69,6 @@ export class CarComponent implements OnInit {
 
 
 
-  getCars() {
-    this.carService.getAllCars().subscribe((response) => {
-      this.cars = response.data;
-    });
-  }
 
   getBrands() {
     this.brandService.getBrands().subscribe((response) => {

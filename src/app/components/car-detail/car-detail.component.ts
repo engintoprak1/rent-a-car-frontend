@@ -55,7 +55,6 @@ export class CarDetailComponent implements OnInit {
   getCarDetailById(id: number) {
     this.carService.getCarDetailById(id).subscribe((response) => {
       this.carForDetail = response.data;
-      console.log(this.carForDetail.brandName)
     });
   }
 }
